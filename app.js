@@ -64,6 +64,8 @@ function render() {
 
   $("userAnswer").value = "";
   $("userAnswer").focus();
+  $("btnNextAfterExplain").disabled = (currentIndex >= qNumsSorted.length - 1);
+
 }
 
 function normalizeChoice(s) {
@@ -85,6 +87,9 @@ function showExplain() {
 
   $("answerBlock").textContent = item?.answer_block || "(정답/설명 없음)";
   $("explainWrap").classList.remove("hidden");
+  if (currentIndex < qNumsSorted.length - 1) {
+    $("btnNextAfterExplain").disabled = false;
+  }
 }
 
 function grade() {
@@ -151,7 +156,7 @@ function prev() {
 
 window.addEventListener("DOMContentLoaded", () => {
   loadSolved();
-
+  $("btnNextAfterExplain").disabled = true;
   try {
     loadQAFromGlobal();
   } catch (e) {
@@ -180,4 +185,7 @@ window.addEventListener("DOMContentLoaded", () => {
     $("startNumber").value = hash;
     $("btnStart").click();
   }
+  $("btnNextAfterExplain").addEventListener("click", () => {
+    next(); // 기존 next() 재사용
+  });
 });

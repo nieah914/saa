@@ -300,3 +300,11 @@ button:disabled{
   border-color: rgba(106,167,255,.55);
   box-shadow: 0 10px 30px rgba(106,167,255,.10);
 }
+#btnNextAfterExplain{
+  border-color: rgba(140,123,255,.40);
+  background: linear-gradient(135deg, rgba(140,123,255,.18), rgba(255,255,255,.06));
+}
+#btnNextAfterExplain:hover{
+  border-color: rgba(140,123,255,.55);
+  box-shadow: 0 10px 30px rgba(140,123,255,.10);
+}
