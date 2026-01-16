@@ -5,6 +5,13 @@ let solved = {};
 
 const $ = (id) => document.getElementById(id);
 
+function scrollToQuestion() {
+  const el = document.getElementById("question");
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" }); // [web:135]
+}
+
+
 function loadSolved() {
   try {
     solved = JSON.parse(localStorage.getItem("saa_solved") || "{}");
@@ -144,8 +151,10 @@ function next() {
   if (currentIndex < qNumsSorted.length - 1) {
     currentIndex += 1;
     render();
+    scrollToQuestion();
   }
 }
+
 
 function prev() {
   if (currentIndex > 0) {
