@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAA 문제풀이 (Offline)</title>
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>SAA 문제풀이</h1>
+        <div class="sub">오프라인(file://) 동작 · JSON → JS 임베드</div>
+      </div>
+      <div class="sub">localStorage로 답안 저장</div>
+    </header>
+
+    <!-- 상단 컨트롤 -->
+    <section class="card">
+      <div class="row">
+        <label for="startNumber">시작 문제번호</label>
+        <input id="startNumber" type="number" min="1" placeholder="예: 170" />
+        <button id="btnStart" type="button">시작</button>
+      </div>
+
+      <div class="row row2">
+        <button id="btnPrev" type="button" disabled>이전</button>
+        <button id="btnNext" type="button" disabled>다음</button>
+        <!-- btnReveal 여기서 제거 -->
+      </div>
+    </section>
+
+    <!-- 문제 영역 -->
+    <section class="card">
+      <div class="meta">
+        <div id="qNo" class="qno">Q-</div>
+        <div id="progress" class="progress">-</div>
+      </div>
+
+      <pre id="question" class="question">시작 문제번호를 입력하고 시작을 누르세요.</pre>
+
+      <div class="answerInput">
+        <input id="userAnswer" maxlength="1" placeholder="A~E" disabled />
+        <button id="btnSubmit" type="button" disabled>제출</button>
+        <button id="btnReveal" type="button" disabled>설명보기</button>
+        <div id="result" class="result"></div>
+      </div>
+
+      <div id="explainWrap" class="explainWrap hidden">
+        <div class="explainTitle">정답/설명</div>
+        <pre id="answerBlock" class="answerBlock"></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Tip: URL 해시로 바로 시작 가능 (예: <code>#170</code>)
+    </footer>
+  </div>
+
+  <!-- 데이터 -> 앱 로직 순서 [web:90][web:91] -->
+  <script src="./data/parsed_qa.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+/* styles.css - modern dark UI */
+
+:root{
+  color-scheme: dark;
+
+  --bg0:#070b16;
+  --bg1:#0b1124;
+  --card:#0f1732;
+
+  --text:#eaf0ff;
+  --muted:#aab6da;
+
+  --border: rgba(255,255,255,.10);
+  --border2: rgba(255,255,255,.16);
+
+  --accent:#6aa7ff;
+  --accent2:#8c7bff;
+
+  --ok:#34d399;
+  --bad:#fb7185;
+
+  --shadow: 0 18px 50px rgba(0,0,0,.55);
+  --shadow2: 0 10px 30px rgba(0,0,0,.38);
+
+  --r12: 12px;
+  --r16: 16px;
+}
+
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(106,167,255,.18), transparent 55%),
+    radial-gradient(900px 500px at 90% 15%, rgba(140,123,255,.14), transparent 55%),
+    radial-gradient(900px 800px at 50% 110%, rgba(52,211,153,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color:var(--text);
+}
+
+.container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+}
+
+.header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap: 12px;
+  margin: 10px 0 14px;
+}
+
+.header h1{
+  margin:0;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.sub{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.2;
+  opacity: .92;
+}
+
+/* Card */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid var(--border);
+  border-radius: var(--r16);
+  padding: 14px;
+  margin: 12px 0;
+  box-shadow: var(--shadow2);
+  backdrop-filter: blur(8px);
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.row2{
+  margin-top: 10px;
+}
+
+/* Form */
+label{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+input{
+  height: 42px;
+  min-width: 140px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.22);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+
+input::placeholder{ color: rgba(170,182,218,.65); }
+
+input:focus{
+  border-color: rgba(106,167,255,.55);
+  box-shadow: 0 0 0 4px rgba(106,167,255,.16);
+}
+
+input:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+/* Buttons */
+button{
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform .06s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease, opacity .15s ease;
+  user-select: none;
+}
+
+button:hover{
+  border-color: var(--border2);
+  background: rgba(255,255,255,.10);
+  transform: translateY(-1px);
+}
+
+button:active{
+  transform: translateY(0px);
+}
+
+button:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(140,123,255,.18);
+  border-color: rgba(140,123,255,.55);
+}
+
+/* Primary button (Start) */
+#btnStart{
+  border-color: rgba(106,167,255,.40);
+  background: linear-gradient(135deg, rgba(106,167,255,.25), rgba(140,123,255,.18));
+}
+
+#btnStart:hover{
+  background: linear-gradient(135deg, rgba(106,167,255,.32), rgba(140,123,255,.24));
+  box-shadow: 0 10px 30px rgba(106,167,255,.10);
+}
+
+button:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Meta */
+.meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 2px 2px 0;
+}
+
+.qno{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.qno::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 0 4px rgba(106,167,255,.12);
+}
+
+.progress{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Question / Answer blocks */
+.question, .answerBlock{
+  margin: 12px 0 0;
+  padding: 14px 14px;
+  border-radius: var(--r16);
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  white-space: pre-wrap;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.question{
+  min-height: 150px;
+}
+
+/* Answer input row */
+.answerInput{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+
+#userAnswer{
+  width: 88px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: .22em;
+  padding-left: 14px; /* letter-spacing 보정 */
+}
+
+#btnSubmit{
+  border-color: rgba(52,211,153,.40);
+  background: linear-gradient(135deg, rgba(52,211,153,.18), rgba(255,255,255,.06));
+}
+
+#btnSubmit:hover{
+  border-color: rgba(52,211,153,.55);
+  box-shadow: 0 10px 30px rgba(52,211,153,.10);
+}
+
+.result{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.result.ok{
+  color: var(--ok);
+  font-weight: 650;
+}
+
+.result.bad{
+  color: var(--bad);
+  font-weight: 650;
+}
+
+/* Explanation */
+.explainWrap{
+  margin-top: 12px;
+  border-radius: var(--r16);
+  border: 1px solid rgba(106,167,255,.18);
+  background: linear-gradient(180deg, rgba(106,167,255,.08), rgba(0,0,0,.10));
+  padding: 12px;
+}
+
+.explainTitle{
+  color: rgba(170,182,218,.92);
+  font-size: 13px;
+  margin: 2px 2px 10px;
+  letter-spacing: .02em;
+}
+
+.hidden{ display:none; }
+
+/* Footer (optional if you have it) */
+.footer{
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 10px;
+  opacity: .9;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px){
+  .container{ padding: 14px 12px 22px; }
+  .header{ align-items:flex-start; flex-direction:column; }
+  .question{ min-height: 190px; }
+  input, button{ width: 100%; }
+  #userAnswer{ width: 100%; letter-spacing: .18em; }
+  .meta{ flex-direction:column; align-items:flex-start; gap: 6px; }
+}
+
+#btnReveal{
+  border-color: rgba(106,167,255,.40);
+  background: linear-gradient(135deg, rgba(106,167,255,.18), rgba(255,255,255,.06));
+}
+#btnReveal:hover{
+  border-color: rgba(106,167,255,.55);
+  box-shadow: 0 10px 30px rgba(106,167,255,.10);
+}
